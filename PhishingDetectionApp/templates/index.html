@@ -1,0 +1,109 @@
+{% load static %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<title>PHISHING WEBSITE DETECTION</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+<style>
+	/* Google Fonts */
+@import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);
+
+/* Cursor */
+.cursor{
+    position: relative;
+    width: 24em;
+    margin: 0 auto;
+	font-weight: bold;
+    border-right: 2px solid rgba(255,255,255,.75);
+    font-size: 25px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    transform: translateY(-50%);    
+}
+/* Animation */
+.typewriter-animation {
+  animation: 
+    typewriter 5s steps(50) 1s 1 normal both, 
+    blinkingCursor 500ms steps(50) infinite normal;
+}
+@keyframes typewriter {
+  from { width: 0; }
+  to { width: 100%; }
+}
+@keyframes blinkingCursor{
+  from { border-right-color: rgba(255,255,255,.75); }
+  to { border-right-color: transparent; }
+}
+
+/* Preloader Styles */
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease;
+}
+.preloader.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+.preloader video {
+    max-width: 1920px; /* Adjust size as needed */
+    max-height: 1080px;
+}
+</style>
+</head>
+<body>
+<!-- Preloader -->
+<div class="preloader">
+    <video autoplay loop muted playsinline>
+        <source src="{% static 'videos/load.mp4' %}" type="video/mp4" />
+        Your browser does not support the video tag.
+    </video>
+</div>
+
+<div id="wrapper">
+	<div id="header">
+		<div id="logo">
+			<center><font size="4" color="yellow">Detection of Phishing Website using SVM & Light GBM</font></center>
+		</div>
+		<div id="slogan">
+			
+		</div>
+	</div>
+	<div id="menu">	
+		<ul><center>
+			<li class="first current_page_item"><a href="{% url 'index' %}"><font size="" color="yellow">Home</font></a></li>
+			<li class="first current_page_item"><a href="{% url 'AdminLogin' %}"><font size="" color="yellow">Admin Login Here</font></a></li>
+			
+		</center></ul>
+		<br class="clearfix" />
+	</div>
+	<div id="splash">
+		<img class="pic" src="{% static 'images/Phishing3.jpg' %}" width="870" height="230" alt="" />
+	</div>
+	<br/>
+	<p class="cursor typewriter-animation">Phishing Website Detection...</p>
+</div>
+
+<script>
+    // Preloader JavaScript
+    window.addEventListener('load', function() {
+        const preloader = document.querySelector('.preloader');
+        setTimeout(() => {
+            preloader.classList.add('hidden');
+        }, 10000); // Delay for 10 seconds (10,000 milliseconds)
+    });
+</script>
+</body>
+</html>
